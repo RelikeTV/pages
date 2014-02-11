@@ -37,7 +37,7 @@ graph.setAccessToken('188012464555213|h3ej8qbrZZayEYYyWPghOvUYYTk');
 \********************/
 
 var load_pages = function(){
-	var pagelist = require('./data/pages_top100.json');
+	var pagelist = require('./data/pages_top10.json');
 	async.eachLimit(pagelist, 5,
 		function(item, callback){
 			async.waterfall([

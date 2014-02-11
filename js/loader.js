@@ -67,7 +67,7 @@ var graphPagePosts = function(callback, page_id) {
         } else {
 			var posts = res.data;
 			//console.log(res);
-			async.eachLimit(posts,1,
+			async.eachLimit(posts,5,
 				function(post, callback){
 			    	var video_id = youtube_id.getYoutubeID(post.attachment.href);
 					var value = {};
