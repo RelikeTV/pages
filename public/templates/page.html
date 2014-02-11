@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="well well-sm">
+			<img ng-src="http://graph.facebook.com/{{page.page_id}}/picture?type=large" />
+			{{page.name}}
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-4" ng-repeat="post in page.posts">
+		<div class="well well-sm">
+			<div class="">
+				<a ng-href="#/videos/{{post.video_id}}/">
+					<img class="img-thumbnail" ng-src="http://img.youtube.com/vi/{{post.video_id}}/0.jpg" />
+				</a>
+			</div>
+			<div class="media">
+				<a class="pull-left" href="#">
+					<img class="img-thumbnail media-object" ng-src="http://graph.facebook.com/{{page.page_id}}/picture?type=square" />
+				</a>
+				<div class="media-body">
+					<div style="max-height: 40px;overflow: hidden;"><a ng-href="#/posts/{{post.post_id}}/">{{post.message | limitTo:70 }}</a></div>
+					<small>{{post.created_time * 1000 | date:'dd/MM/yyyy'}} - {{post.like_info.like_count | number:0}} Likes</small>
+				</div>
+			</div>
+			<div class="">
+				{{post.video_id}} ID
+			</div>
+		</div>
+	</div>
+</div>

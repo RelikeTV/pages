@@ -1,0 +1,380 @@
+connect.multipart() will be removed in connect 3.0
+visit https://github.com/senchalabs/connect/wiki/Connect-3.0 for alternatives
+connect.limit() will be removed in connect 3.0
+Listening on port 3000...
+Connected to 'pages' database
+Child connected to 'pages' database
+
+Pages Removed : 10
+
+Videos Removed : 204
+
+Posts Removed : 207
+
+331288023558058 = 1
+
+7270241753 = 11
+
+20531316728 = 9
+
+29534858696 = 6
+
+45309870078 = 65
+
+156794164312 = 30
+
+19691681472 = 14
+
+10092511675 = 31
+
+8210451787 = 34
+
+30382852317 = 7
+
+28940545600 = 27
+
+19614945368 = 19
+
+17774451468 = 28
+
+82771544063 = 10
+
+9098498615 = 13
+
+7245371700 = 0
+
+355374000182 = 21
+
+7619396355 = 8
+
+24098842630 = 19
+
+6815841748 = 0
+
+7724542745 = 0
+
+208633805894647 = 1
+
+69116329538 = 34
+
+149360941771672 = 3
+
+159616034235 = 0
+
+19061333123 = 12
+
+14104316802 = 21
+
+150024648352527 = 6
+
+6329881653 = 0
+
+56381779049 = 11
+
+21275344520 = 12
+
+5769333796 = 41
+
+362654797113137 = 7
+
+10212595263 = 49
+
+19855571496 = 20
+
+11455644806 = 7
+
+178297347303 = 30
+
+103248201077 = 4
+
+15253175252 = 70
+
+5718732097 = 5
+
+29282006975 = 7
+
+5170395767 = 8
+
+45761569458 = 9
+
+53523601754 = 15
+
+11768835826 = 3
+
+201014990178 = 9
+
+400783035521 = 13
+
+7220821999 = 3
+
+8335563918 = 31
+
+49436315526 = 9
+
+79775744089 = 19
+
+9328458887 = 0
+
+9465008123 = 1
+
+87761771986 = 36
+
+16547831022 = 28
+
+8103318119 = 6
+
+121930497861753 = 3
+
+7091561785 = 3
+
+24786692848 = 3
+
+221653767917280 = 18
+
+33331950906 = 8
+
+86037497258 = 0
+
+138793027632 = 25
+
+355014671241740 = 2
+
+16100944031 = 13
+
+22577904575 = 4
+
+315390295169855 = 1
+
+8245623462 = 80
+
+106357469967 = 2
+
+122792026424 = 4
+
+6002238585 = 0
+
+8762738724 = 15
+
+132160746180 = 22
+
+11006459933 = 5
+
+140216402663925 = 2
+
+159460420880667 = 16
+
+8305888286 = 77
+
+12626353545 = 5
+
+15087023444 = 20
+
+21608835481 = 1
+
+79298470625 = 7
+
+73855584817 = 16
+
+6478112671 = 24
+
+5678046685 = 5
+
+100818332595 = 70
+
+104958162837 = 31
+
+182162001806727 = 1
+
+489202814474165 = 0
+
+153777574787846 = 10
+
+14866607011 = 16
+
+64637653943 = 13
+
+285269234937157 = 2
+
+22893372268 = 28
+
+343533479080752 = 10
+
+145300805513355 = 30
+
+146491058756895 = 3
+
+356417261082215 = 3
+
+8606723411 = 4
+
+[90mGET / [36m304 [90m9ms[0m
+[90mGET /app.js [36m304 [90m4ms[0m
+[90mGET /templates/pages.html [36m304 [90m1ms[0m
+Pages = 99
+[90mGET /api/stats/pages [32m200 [90m11ms - 17b[0m
+Find All Pages
+false
+[90mGET /api/pages?asc=false&limit=36&order=fan_count&skip=NaN [32m200 [90m29ms - 39.65kb[0m
+Find All Pages = 36
+[90mGET /templates/page.html [36m304 [90m2ms[0m
+Find Page By Page ID : 10092511675
+[90mGET /api/pages/10092511675/ [32m200 [90m7ms - 1.03kb[0m
+Find Posts By Page ID : 10092511675
+[90mGET /api/pages/10092511675/posts [32m200 [90m23ms - 54.4kb[0m
+Find All Posts = 31
+Pages = 99
+[90mGET /api/stats/pages [36m304 [90m2ms[0m
+Find All Pages
+false
+[90mGET /api/pages?asc=false&limit=36&order=fan_count&skip=NaN [36m304 [90m10ms[0m
+Find All Pages = 36
+Find Page By Page ID : 45309870078
+[90mGET /api/pages/45309870078/ [32m200 [90m4ms - 984b[0m
+Find Posts By Page ID : 45309870078
+[90mGET /api/pages/45309870078/posts [32m200 [90m23ms - 106.37kb[0m
+Find All Posts = 65
+[90mGET / [36m304 [90m2ms[0m
+[90mGET /app.js [36m304 [90m2ms[0m
+[90mGET /templates/page.html [36m304 [90m1ms[0m
+Find Page By Page ID : 45309870078
+[90mGET /api/pages/45309870078/ [36m304 [90m3ms[0m
+Find Posts By Page ID : 45309870078
+[90mGET /api/pages/45309870078/posts [32m200 [90m24ms - 106.37kb[0m
+Find All Posts = 65
+[90mGET /templates/pages.html [36m304 [90m0ms[0m
+Find All Pages
+false
+Pages = 99
+[90mGET /api/stats/pages [36m304 [90m4ms[0m
+[90mGET /api/pages?asc=false&limit=36&order=fan_count&skip=NaN [36m304 [90m9ms[0m
+Find All Pages = 36
+Find Page By Page ID : 19614945368
+[90mGET /api/pages/19614945368/ [32m200 [90m2ms - 825b[0m
+Find Posts By Page ID : 19614945368
+[90mGET /api/pages/19614945368/posts [32m200 [90m7ms - 34.74kb[0m
+Find All Posts = 19
+Find All Pages
+false
+Pages = 99
+[90mGET /api/stats/pages [36m304 [90m6ms[0m
+[90mGET /api/pages?asc=false&limit=36&order=fan_count&skip=NaN [36m304 [90m11ms[0m
+Find All Pages = 36
+Find Page By Page ID : 28940545600
+[90mGET /api/pages/28940545600/ [32m200 [90m3ms - 786b[0m
+Find Posts By Page ID : 28940545600
+[90mGET /api/pages/28940545600/posts [32m200 [90m9ms - 46.02kb[0m
+Find All Posts = 27
+Pages = 99
+[90mGET /api/stats/pages [36m304 [90m2ms[0m
+Find All Pages
+false
+[90mGET /api/pages?asc=false&limit=36&order=fan_count&skip=NaN [36m304 [90m7ms[0m
+Find All Pages = 36
+Find Page By Page ID : 355374000182
+Find Posts By Page ID : 355374000182
+[90mGET /api/pages/355374000182/ [32m200 [90m3ms - 899b[0m
+[90mGET /api/pages/355374000182/posts [32m200 [90m10ms - 37.33kb[0m
+Find All Posts = 21
+Find All Pages
+false
+Pages = 99
+[90mGET /api/stats/pages [36m304 [90m3ms[0m
+[90mGET /api/pages?asc=false&limit=36&order=fan_count&skip=NaN [36m304 [90m36ms[0m
+Find All Pages = 36
+Find Page By Page ID : 28940545600
+Find Posts By Page ID : 28940545600
+[90mGET /api/pages/28940545600/ [36m304 [90m3ms[0m
+[90mGET /api/pages/28940545600/posts [36m304 [90m11ms[0m
+Find All Posts = 27
+Find All Pages
+false
+Pages = 99
+[90mGET /api/stats/pages [36m304 [90m6ms[0m
+[90mGET /api/pages?asc=false&limit=36&order=fan_count&skip=NaN [36m304 [90m8ms[0m
+Find All Pages = 36
+Find Page By Page ID : 45309870078
+[90mGET /api/pages/45309870078/ [36m304 [90m2ms[0m
+Find Posts By Page ID : 45309870078
+[90mGET /api/pages/45309870078/posts [36m304 [90m16ms[0m
+Find All Posts = 65
+[90mGET /templates/video.html [36m304 [90m1ms[0m
+[90mGET /%7B%7Burl%7D%7D [33m404 [90m3ms[0m
+Find Video By Video ID : q35HER2-H70
+[90mGET /api/videos/q35HER2-H70/ [32m200 [90m5ms - 1.81kb[0m
+Pages = 99
+[90mGET /api/stats/pages [36m304 [90m2ms[0m
+Find All Pages
+false
+[90mGET /api/pages?asc=false&limit=36&order=fan_count&skip=NaN [36m304 [90m6ms[0m
+Find All Pages = 36
+Find Page By Page ID : 9098498615
+Find Posts By Page ID : 9098498615
+[90mGET /api/pages/9098498615/ [32m200 [90m6ms - 959b[0m
+[90mGET /api/pages/9098498615/posts [32m200 [90m6ms - 19.61kb[0m
+Find All Posts = 13
+[90mGET /templates/post.html [36m304 [90m1ms[0m
+Find Video By Video ID : 9098498615_10151806692933616
+[90mGET /api/posts/9098498615_10151806692933616/ [32m200 [90m3ms - 1.24kb[0m
+Find Page By Page ID : 9098498615
+[90mGET /api/pages/9098498615/ [36m304 [90m3ms[0m
+Find Posts By Page ID : 9098498615
+[90mGET /api/pages/9098498615/posts [36m304 [90m9ms[0m
+Find All Posts = 13
+Find Video By Video ID : 9098498615_10151806692933616
+[90mGET /api/posts/9098498615_10151806692933616/ [36m304 [90m3ms[0m
+Find Page By Page ID : 9098498615
+[90mGET /api/pages/9098498615/ [36m304 [90m3ms[0m
+Find Posts By Page ID : 9098498615
+[90mGET /api/pages/9098498615/posts [36m304 [90m7ms[0m
+Find All Posts = 13
+[90mGET /favicon.ico [33m404 [90m1ms[0m
+Pages = 99
+[90mGET /api/stats/pages [36m304 [90m1ms[0m
+Find All Pages
+false
+[90mGET /api/pages?asc=false&limit=36&order=fan_count&skip=NaN [36m304 [90m42ms[0m
+Find All Pages = 36
+Find Page By Page ID : 7619396355
+[90mGET /api/pages/7619396355/ [32m200 [90m2ms - 832b[0m
+Find Posts By Page ID : 7619396355
+[90mGET /api/pages/7619396355/posts [32m200 [90m4ms - 14.02kb[0m
+Find All Posts = 8
+Pages = 99
+[90mGET /api/stats/pages [36m304 [90m2ms[0m
+Find All Pages
+false
+[90mGET /api/pages?asc=false&limit=36&order=fan_count&skip=NaN [36m304 [90m7ms[0m
+Find All Pages = 36
+Find Page By Page ID : 362654797113137
+[90mGET /api/pages/362654797113137/ [32m200 [90m2ms - 1.82kb[0m
+Find Posts By Page ID : 362654797113137
+[90mGET /api/pages/362654797113137/posts [32m200 [90m5ms - 12.24kb[0m
+Find All Posts = 7
+Pages = 99
+[90mGET /api/stats/pages [36m304 [90m2ms[0m
+Find All Pages
+false
+[90mGET /api/pages?asc=false&limit=36&order=fan_count&skip=NaN [36m304 [90m7ms[0m
+Find All Pages = 36
+Find Page By Page ID : 87761771986
+[90mGET /api/pages/87761771986/ [32m200 [90m2ms - 1.44kb[0m
+Find Posts By Page ID : 87761771986
+[90mGET /api/pages/87761771986/posts [32m200 [90m9ms - 60.1kb[0m
+Find All Posts = 36
+Pages = 99
+[90mGET /api/stats/pages [36m304 [90m4ms[0m
+Find All Pages
+false
+[90mGET /api/pages?asc=false&limit=36&order=fan_count&skip=NaN [36m304 [90m7ms[0m
+Find All Pages = 36
+Find Page By Page ID : 20531316728
+[90mGET /api/pages/20531316728/ [32m200 [90m4ms - 816b[0m
+Find Posts By Page ID : 20531316728
+[90mGET /api/pages/20531316728/posts [32m200 [90m9ms - 15.94kb[0m
+Find All Posts = 9
+Pages = 99
+[90mGET /api/stats/pages [36m304 [90m2ms[0m
+Find All Pages
+false
+[90mGET /api/pages?asc=false&limit=36&order=fan_count&skip=NaN [36m304 [90m7ms[0m
+Find All Pages = 36

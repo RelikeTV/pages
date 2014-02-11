@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="relikePages" >
+	<head>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.css">
+	</head>
+	<body>
+		
+		<header class="navbar navbar-fixed-top navbar-inverse" role="banner">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="../" class="navbar-brand">Relike Pages</a>
+				</div>
+				<nav role="navigation">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#/pages">Pages</a>
+						</li>
+						<li>
+							<a href="#/videos">Videos</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		
+		<br />
+		<br />
+		<br />
+		<br />
+		<div ng-view class="container"></div>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular-route.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.js"></script>
+		<script src="./app.js"></script>
+		
+	</body>
+</html>
