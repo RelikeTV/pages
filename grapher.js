@@ -25,6 +25,7 @@ db.open(function(err, db) {
         console.log("Child connected to 'pages' database");
 		clean_database();
 		load_pages();
+		//console.log(Date());
 		//update_database();
     }
 });
@@ -37,6 +38,31 @@ graph.setAccessToken('188012464555213|h3ej8qbrZZayEYYyWPghOvUYYTk');
 \********************/
 
 var load_pages = function(){
+	var posts = db.collection('pageslist').find().toArray(function(err, pages) {
+		async.eachLimit(pages, 10,
+			function(item, callback){
+				async.waterfall([
+				    function(callback){
+				    	loader.graphPage(function (){callback();},item.page_id);
+				    },
+				    function(callback){
+				        loader.graphPagePosts(function (){callback();},item.page_id);
+				    },
+				    function(callback){
+				        graph_posts_video(function (){callback();},item.page_id);
+				    }
+				],
+				function(err, results){
+					loader.setCountPagesPosts(function (){callback();},item.page_id);
+				});
+			},
+			function(err){
+				finish();
+			}
+		);
+	});
+	
+	/**
 	var pagelist = require('./data/pages_top1000.json');
 	async.eachLimit(pagelist, 10,
 		function(item, callback){
@@ -59,15 +85,13 @@ var load_pages = function(){
 			finish();
 		}
 	);
+	**/
 };
  
 var graph_posts_video = function(callback, page_id) {
-	var posts = {};
 	var posts = db.collection('posts').find({source_id:Number(page_id)}).toArray(function(err, items) {
-		//console.log('Find All Posts = ' + items.length);
-		async.eachLimit(items,20,
+		async.eachLimit(items,10,
 			function(item, callback){
-				//graph_video(item.attachment.href, item.post_id, function(err){callback();});
 				loader.graphVideo(item.video_id, item.post_id, function(err){callback();});
 			},
 			function(err){
@@ -97,4 +121,29 @@ var clean_database = function(){
 	});
 };
 
+var update_database = function(){
+	var pagelist = require('./data/pages_top1000.json');
+	async.eachLimit(pagelist, 5,
+		function(page, callback){
+			//console.log(item.fb_id);
+			console.log(pagelist.indexOf(page));
+			var value = {};
+			value['page_id'] = page.fb_id;
+			console.log(value);
+		    db.collection('pageslist', function(err, collection) {
+				collection.update({page_id:page.fb_id},value, {upsert:true,safe:true}, function(err, result) {
+		            if (err) {
+		                console.log(err);
+		            } else {
+		                console.log(pagelist.indexOf(item));
+		            }
+				});
+				callback();
+		    }); 
+		},
+		function(err){
+			console.log('Update Database Finished');
+		}
+	);
+};
  

@@ -5,7 +5,6 @@ var request = require('request');
 var async = require('async');
 var youtube_id = require('./youtube_id');
 
-
 var setCountPagesPosts = function(callback, page_id){
 	var posts_count = 0;
 	var value = {};
@@ -17,12 +16,11 @@ var setCountPagesPosts = function(callback, page_id){
 			collection.update({page_id:page_id}, {'$set':value}, {upsert:true,safe:true}, function(err, result) {
 	            if (err) {
 	            	console.log('Error insert posts_count : ' + err)
-	            	callback();
 	            } else {
 	            	console.log(page_id + ' = ' + posts_count);
-	            	callback();
 	            }
 			});
+			callback();
 	    });    
 	});
 };
@@ -44,12 +42,11 @@ var graphPage = function(callback, page_id) {
 					collection.update({page_id:res.data[0].page_id}, page, {upsert:true,safe:true}, function(err, result) {
 			            if (err) {
 			                console.log('Error insert graph_page: ' + err)
-			            	callback();
 			            } else {
 			                //console.log('Inserted pages : ' + res.data[0].name);
-			            	callback();
 			            }
 					});
+					callback();
 			    }); 
 				//console.log(res.data[0].page_id);
 			}
@@ -58,7 +55,9 @@ var graphPage = function(callback, page_id) {
 };
 
 var graphPagePosts = function(callback, page_id) {
-	var post_query = "SELECT post_id,message,attachment,comment_info,created_time, description, like_info, permalink, share_info, source_id,actor_id, type FROM stream WHERE source_id=" + page_id + " AND actor_id=" + page_id + " AND strpos(attachment.href,'youtu') >= 0 LIMIT 250"; 
+	var date = new Date();
+	date = Math.round(date.getTime()/1000);
+	var post_query = "SELECT post_id,message,attachment,comment_info,created_time, description, like_info, permalink, share_info, source_id,actor_id, type FROM stream WHERE source_id=" + page_id + " AND actor_id=" + page_id + " AND strpos(attachment.href,'youtu') >= 0 AND created_time < (" + date + "-00000000) AND created_time > (" + date + "-30000000) LIMIT 100"; 
 	graph.fql(post_query, function(err, res) { 
         if (err) {
         	console.log('Error request graph_page: ' + err);
@@ -76,10 +75,8 @@ var graphPagePosts = function(callback, page_id) {
 				    db.collection('posts', function(err, collection) {
 						collection.update({post_id:post.post_id}, post, {upsert:true,safe:true}, function(err, result) {
 				            if (err) {
-								callback();
 				            	console.log('Error insert full graph_posts : ' + err)
 				            } else { 
-								callback();
 				            	//console.log(value);
 				            } 
 						});
@@ -90,6 +87,7 @@ var graphPagePosts = function(callback, page_id) {
 				            	//console.log(value);
 				            }
 						});
+						callback();
 				    });
 				    
 				},
@@ -115,15 +113,14 @@ var graphVideo = function(video_id, post_id, callback) {
 			    db.collection('posts', function(err, collection) {
 					collection.remove({post_id:String(post_id)}, function(err, result) {
 			            if (err) {
-			            	callback();
 			            	console.log('Error removing inserted post : ' + err)
 			            } 
 			            else { 
 			            	//console.log(result);
-			            	callback();
 			            	//console.log('removed post : ' +post_id+ ' - video id : ' +value.video_id);
 			            }
 					});
+					callback();
 			    });
 			} else {
 				video_summary = video.items[0];
@@ -132,13 +129,12 @@ var graphVideo = function(video_id, post_id, callback) {
 			    db.collection('videos', function(err, collection) {
 					collection.update({id:video_id}, video_summary, {upsert:true,safe:true}, function(err, result) {
 			            if (err) {
-			            	callback();
 			                console.log('Error insert graph_video : ' + err);
 			            } else {
-			            	callback();
 			            	//console.log('Video : ' + video_summary.id);
 			            }
 					});
+					callback();
 			    });
 			}
 		} else {
