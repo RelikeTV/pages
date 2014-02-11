@@ -58,7 +58,7 @@ var graphPage = function(callback, page_id) {
 };
 
 var graphPagePosts = function(callback, page_id) {
-	var post_query = "SELECT post_id,message,attachment,comment_info,created_time, description, like_info, permalink, share_info, source_id,actor_id, type FROM stream WHERE source_id=" + page_id + " AND actor_id=" + page_id + " AND strpos(attachment.href,'youtu') >= 0 LIMIT 100"; 
+	var post_query = "SELECT post_id,message,attachment,comment_info,created_time, description, like_info, permalink, share_info, source_id,actor_id, type FROM stream WHERE source_id=" + page_id + " AND actor_id=" + page_id + " AND strpos(attachment.href,'youtu') >= 0 LIMIT 250"; 
 	graph.fql(post_query, function(err, res) { 
         if (err) {
         	console.log('Error request graph_page: ' + err);
