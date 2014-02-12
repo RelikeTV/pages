@@ -25,7 +25,6 @@ db.open(function(err, db) {
         console.log("Child connected to 'pages' database");
 		//clean_database();
 		load_pages();
-		//console.log(Date());
 		//update_database();
     }
 });
@@ -53,8 +52,6 @@ var load_pages = function(){
 				    }
 				],
 				function(err, res){
-					//console.log(pages.indexOf(item) + ' - ' + item.page_id + ' - ' + item.posts_count);
-					//console.log(res);
 					loader.setCountPagesPosts(function (){callback();},item.page_id,pages.indexOf(item));
 				});
 			},
@@ -102,10 +99,9 @@ var update_database = function(){
 	db.collection("pageslist").remove({},function(err,numberRemoved){
 		console.log("Pages Removed : " + numberRemoved);
 	});
-	var pagelist = require('./data/pages_top100.json');
-	async.eachLimit(pagelist, 5,
+	var pagelist = require('./data/pages_top5000.json');
+	async.each(pagelist,
 		function(page, callback){
-			//console.log(item.fb_id);
 			console.log(pagelist.indexOf(page));
 			var value = {};
 			value['page_id'] = page.fb_id;
