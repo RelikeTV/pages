@@ -5,6 +5,8 @@ var request = require('request');
 var async = require('async');
 var youtube_id = require('./youtube_id');
 
+
+
 var setCountPagesPosts = function(callback, page_id, index){
 	var posts_count = 0;
 	var value = {};
@@ -53,14 +55,14 @@ var graphPage = function(callback, page_id) {
 };
 
 var graphPagePosts = function(callback, page_id) {
-	var post_query = "SELECT post_id,message,attachment,comment_info,created_time, description, like_info, permalink, share_info, source_id,actor_id, type FROM stream WHERE source_id=" + page_id + " AND actor_id=" + page_id + " AND strpos(attachment.href,'youtu') >= 0 LIMIT 200"; 
+	var post_query = "SELECT post_id,message,attachment,comment_info,created_time, description, like_info, permalink, share_info, source_id,actor_id, type FROM stream WHERE source_id=" + page_id + " AND actor_id=" + page_id + " AND strpos(attachment.href,'youtu') >= 0 LIMIT 100"; 
 	graph.fql(post_query, function(err, res) { 
         if (err) {
         	console.log(err);
         	callback();
         } else {
 			var posts = res.data;
-			async.eachLimit(posts,5,
+			async.eachLimit(posts,10,
 				function(post, callback){
 			    	var video_id = youtube_id.getYoutubeID(post.attachment.href);
 					var value = {};

@@ -38,7 +38,7 @@ graph.setAccessToken('188012464555213|h3ej8qbrZZayEYYyWPghOvUYYTk');
 
 var load_pages = function(){
 	var posts = db.collection('pageslist').find().toArray(function(err, pages) {
-		async.eachLimit(pages, 5,
+		async.eachLimit(pages, 20,
 			function(item, callback){
 				async.waterfall([
 				    function(callback){
@@ -64,7 +64,7 @@ var load_pages = function(){
  
 var graph_posts_video = function(callback, page_id) {
 	var posts = db.collection('posts').find({source_id:Number(page_id)}).toArray(function(err, items) {
-		async.eachLimit(items,10,
+		async.eachLimit(items,50,
 			function(item, callback){
 				loader.graphVideo(item.video_id, item.post_id, function(err){callback();});
 			},
