@@ -5,7 +5,7 @@ var request = require('request');
 var async = require('async');
 var youtube_id = require('./youtube_id');
 
-var setCountPagesPosts = function(callback, page_id){
+var setCountPagesPosts = function(callback, page_id, index){
 	var posts_count = 0;
 	var value = {};
 	var cursor_posts = db.collection('posts').find({source_id:Number(page_id)}).count(function(err, count) {
@@ -17,7 +17,7 @@ var setCountPagesPosts = function(callback, page_id){
 	            if (err) {
 	            	console.log('Error insert posts_count : ' + err)
 	            } else {
-	            	console.log(page_id + ' = ' + posts_count);
+	            	console.log(index + ' | ' + page_id + ' = ' + posts_count);
 	            }
 			});
 			callback();
@@ -57,7 +57,7 @@ var graphPage = function(callback, page_id) {
 var graphPagePosts = function(callback, page_id) {
 	var date = new Date();
 	date = Math.round(date.getTime()/1000);
-	var post_query = "SELECT post_id,message,attachment,comment_info,created_time, description, like_info, permalink, share_info, source_id,actor_id, type FROM stream WHERE source_id=" + page_id + " AND actor_id=" + page_id + " AND strpos(attachment.href,'youtu') >= 0 AND created_time < (" + date + "-00000000) AND created_time > (" + date + "-30000000) LIMIT 100"; 
+	var post_query = "SELECT post_id,message,attachment,comment_info,created_time, description, like_info, permalink, share_info, source_id,actor_id, type FROM stream WHERE source_id=" + page_id + " AND actor_id=" + page_id + " AND strpos(attachment.href,'youtu') >= 0 AND created_time < (" + date + "-60000000) AND created_time > (" + date + "-90000000) LIMIT 500"; 
 	graph.fql(post_query, function(err, res) { 
         if (err) {
         	console.log('Error request graph_page: ' + err);

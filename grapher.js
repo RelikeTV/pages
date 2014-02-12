@@ -23,7 +23,7 @@ db = new Db('pages', server, {w:1});
 db.open(function(err, db) {
     if(!err) {
         console.log("Child connected to 'pages' database");
-		clean_database();
+		//clean_database();
 		load_pages();
 		//console.log(Date());
 		//update_database();
@@ -39,7 +39,7 @@ graph.setAccessToken('188012464555213|h3ej8qbrZZayEYYyWPghOvUYYTk');
 
 var load_pages = function(){
 	var posts = db.collection('pageslist').find().toArray(function(err, pages) {
-		async.eachLimit(pages, 10,
+		async.eachLimit(pages, 5,
 			function(item, callback){
 				async.waterfall([
 				    function(callback){
@@ -52,8 +52,10 @@ var load_pages = function(){
 				        graph_posts_video(function (){callback();},item.page_id);
 				    }
 				],
-				function(err, results){
-					loader.setCountPagesPosts(function (){callback();},item.page_id);
+				function(err, res){
+					//console.log(pages.indexOf(item) + ' - ' + item.page_id + ' - ' + item.posts_count);
+					//console.log(res);
+					loader.setCountPagesPosts(function (){callback();},item.page_id,pages.indexOf(item));
 				});
 			},
 			function(err){
@@ -61,31 +63,6 @@ var load_pages = function(){
 			}
 		);
 	});
-	
-	/**
-	var pagelist = require('./data/pages_top1000.json');
-	async.eachLimit(pagelist, 10,
-		function(item, callback){
-			async.waterfall([
-			    function(callback){
-			    	loader.graphPage(function (){callback();},item.fb_id);
-			    },
-			    function(callback){
-			        loader.graphPagePosts(function (){callback();},item.fb_id);
-			    },
-			    function(callback){
-			        graph_posts_video(function (){callback();},item.fb_id);
-			    }
-			],
-			function(err, results){
-				loader.setCountPagesPosts(function (){callback();},item.fb_id);
-			});
-		},
-		function(err){
-			finish();
-		}
-	);
-	**/
 };
  
 var graph_posts_video = function(callback, page_id) {
@@ -122,7 +99,10 @@ var clean_database = function(){
 };
 
 var update_database = function(){
-	var pagelist = require('./data/pages_top1000.json');
+	db.collection("pageslist").remove({},function(err,numberRemoved){
+		console.log("Pages Removed : " + numberRemoved);
+	});
+	var pagelist = require('./data/pages_top100.json');
 	async.eachLimit(pagelist, 5,
 		function(page, callback){
 			//console.log(item.fb_id);
